@@ -1,16 +1,16 @@
 class AitNativeRc < Formula
   desc "Language-neutral native AIT CLI and inactive self-hosted server"
   homepage "https://github.com/weita2026/ait-native"
-  version "1.0.0-rc.1"
+  version "1.0.0-rc.2"
   license all_of: ["AGPL-3.0-only", "Apache-2.0"]
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.0.0-rc.1/ait-native-1.0.0-rc.1-aarch64-apple-darwin.tar.gz"
-      sha256 "e879e193b93459ecc9b5866bb9a914f2a1a327291f3568b919e1216418a9cd24"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.0.0-rc.2/ait-native-1.0.0-rc.2-aarch64-apple-darwin.tar.gz"
+      sha256 "e3dce0578dd29e09c68872c813fddf6fd110a4be8ad62161c5b60cbaf872ee12"
     elsif Hardware::CPU.intel?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.0.0-rc.1/ait-native-1.0.0-rc.1-x86_64-apple-darwin.tar.gz"
-      sha256 "c30bd2d90b6f16d34f78d44b7fcc4164a7c5de9017c4ad27ed324f059816a249"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.0.0-rc.2/ait-native-1.0.0-rc.2-x86_64-apple-darwin.tar.gz"
+      sha256 "18476da42feea0811abdf8e99ea5f5fe91aefa523846eaf27422537aae2fea9c"
     else
       odie "unsupported CPU architecture"
     end
@@ -18,11 +18,11 @@ class AitNativeRc < Formula
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.0.0-rc.1/ait-native-1.0.0-rc.1-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "6250b65bdb8fe041add9f66c620597ac06879151962f792de99d61606a1adcca"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.0.0-rc.2/ait-native-1.0.0-rc.2-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "7b4c4181abf073f1a0d77401afac4210c8bd507a9e42568f9a711efc25f8d6ce"
     elsif Hardware::CPU.intel?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.0.0-rc.1/ait-native-1.0.0-rc.1-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "c988f1344f45bc3f7ed76c453012f171e3932fd687be60ce85ef719a72ddbf89"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.0.0-rc.2/ait-native-1.0.0-rc.2-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "7b4448e7d33bad2e468178217ef5bcfa4b862e477b5d8b52eb4b1d44dcdb5ffe"
     else
       odie "unsupported CPU architecture"
     end
