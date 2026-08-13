@@ -5,11 +5,11 @@ class AitNativeRc < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.0.0-rc.3/ait-native-1.0.0-rc.3-aarch64-apple-darwin.tar.gz"
-      sha256 "59d670579271fa9a687e6ce1878e7ae0f8116c11c0448f3e932193eac9df4caf"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.0.0-rc.4/ait-native-1.0.0-rc.4-aarch64-apple-darwin.tar.gz"
+      sha256 "fbc7fc9f3baced6611e22f7f6917567705a8037042685b4184b04ea8c1b80602"
     elsif Hardware::CPU.intel?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.0.0-rc.3/ait-native-1.0.0-rc.3-x86_64-apple-darwin.tar.gz"
-      sha256 "1ff74c2465d999906ab93db8d8d90fb5e39a78b54acb1cacac8be01012a7752c"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.0.0-rc.4/ait-native-1.0.0-rc.4-x86_64-apple-darwin.tar.gz"
+      sha256 "f3e2a94f69d5563da38a2a355d7e920f1b3e89565bf1d5b902869b0c731b59a4"
     else
       odie "unsupported CPU architecture"
     end
@@ -17,11 +17,11 @@ class AitNativeRc < Formula
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.0.0-rc.3/ait-native-1.0.0-rc.3-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "adafb65639230a4a86c437ff988d3795eaa7a20eb6f8eb26cb7747a9b90379d9"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.0.0-rc.4/ait-native-1.0.0-rc.4-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "6e70a068ae271a5e6580c9c5c1a5a2d92843889e9a437e2692577085506d545b"
     elsif Hardware::CPU.intel?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.0.0-rc.3/ait-native-1.0.0-rc.3-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "97480fef13f2fe92f62c146c8bfb5ac562e7efd49e01bd92172d19d400388ebc"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.0.0-rc.4/ait-native-1.0.0-rc.4-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "67efb6c56712fd39da5cbf2f771fb5839b34b15234689282f0c730569e7fff9c"
     else
       odie "unsupported CPU architecture"
     end
