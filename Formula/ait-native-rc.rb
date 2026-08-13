@@ -1,7 +1,6 @@
 class AitNativeRc < Formula
   desc "Language-neutral native AIT CLI and inactive self-hosted server"
   homepage "https://github.com/weita2026/ait-native"
-  version "1.0.0-rc.3"
   license all_of: ["AGPL-3.0-only", "Apache-2.0"]
 
   on_macos do
@@ -36,7 +35,14 @@ class AitNativeRc < Formula
   end
 
   service do
-    run [opt_bin/"ait-server", "run", "--data", var/"ait-native/server-data", "--init-if-missing", "--defer-ci-admission"]
+    run [
+      opt_bin/"ait-server",
+      "run",
+      "--data",
+      var/"ait-native/server-data",
+      "--init-if-missing",
+      "--defer-ci-admission",
+    ]
     keep_alive true
     log_path var/"log/ait-server.log"
     error_log_path var/"log/ait-server.error.log"
