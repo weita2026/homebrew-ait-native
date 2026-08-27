@@ -5,11 +5,11 @@ class AitNative < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.0.1/ait-native-1.0.1-aarch64-apple-darwin.tar.gz"
-      sha256 "6dc5e30e8b8f2b9776c2d388c81d4e0122615d4fdd75efed5d568424a0bf6c72"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.1.0/ait-native-1.1.0-aarch64-apple-darwin.tar.gz"
+      sha256 "4f3e02c932bbf29c24560a9268ca6ce2aabacea5bc3dcb7908ccefc7b6c55a31"
     elsif Hardware::CPU.intel?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.0.1/ait-native-1.0.1-x86_64-apple-darwin.tar.gz"
-      sha256 "33e359f5a4f192faeefdf6fc6e0a7902efadb6937fd287b5b68f83ddeb335bbf"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.1.0/ait-native-1.1.0-x86_64-apple-darwin.tar.gz"
+      sha256 "4a59d44e8ef27444164020c7992a9b73b4de463a33ca916c3c3b1221d413ab50"
     else
       odie "unsupported CPU architecture"
     end
@@ -17,11 +17,11 @@ class AitNative < Formula
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.0.1/ait-native-1.0.1-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "431da922893534ad3f677b76ee1fac3a752d0ce953cf800f1eab367615845c44"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.1.0/ait-native-1.1.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "9f77fade2109d7288da169ce724f1b80ee4047b2285dd0f0c5fc1fd7589588bd"
     elsif Hardware::CPU.intel?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.0.1/ait-native-1.0.1-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "5a649c4f872b6c436fe96d9ed54dbbae4e2a8498e9ffc80b62f078c10f5dd1ef"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.1.0/ait-native-1.1.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "356ac2c7052f61f66aa0aa7704e576b27dccb30987af9a67c5788d1ff85ec603"
     else
       odie "unsupported CPU architecture"
     end
@@ -37,7 +37,6 @@ class AitNative < Formula
   service do
     run [
       opt_bin/"ait-server",
-      "run",
       "--data",
       var/"ait-native/server-data",
       "--init-if-missing",
@@ -51,7 +50,7 @@ class AitNative < Formula
   def caveats
     <<~EOS
       ait-server is installed but remains inactive until explicitly started.
-      Foreground: #{bin}/ait-server run
+      Foreground: #{bin}/ait-server
       Managed user service: brew services start ait-native
       Service data: #{var}/ait-native/server-data
       Managed CI still requires an admitted memory-backed runtime root.
