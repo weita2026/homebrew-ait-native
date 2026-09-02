@@ -1,15 +1,15 @@
 class AitNative < Formula
-  desc "Language-neutral native AIT CLI and inactive self-hosted server"
+  desc "Language-neutral native AIT CLI and runner with an inactive self-hosted server"
   homepage "https://github.com/weita2026/ait-native"
   license all_of: ["AGPL-3.0-only", "Apache-2.0"]
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.1.0/ait-native-1.1.0-aarch64-apple-darwin.tar.gz"
-      sha256 "4f3e02c932bbf29c24560a9268ca6ce2aabacea5bc3dcb7908ccefc7b6c55a31"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.1.1/ait-native-1.1.1-aarch64-apple-darwin.tar.gz"
+      sha256 "e6758feded0b2eca0894af11f823b1549ade655d1245479c872d461fab2b7443"
     elsif Hardware::CPU.intel?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.1.0/ait-native-1.1.0-x86_64-apple-darwin.tar.gz"
-      sha256 "4a59d44e8ef27444164020c7992a9b73b4de463a33ca916c3c3b1221d413ab50"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.1.1/ait-native-1.1.1-x86_64-apple-darwin.tar.gz"
+      sha256 "480b485d76853e0cefde8cf04e064dba14cbee3e4e764bb4459fb10663539362"
     else
       odie "unsupported CPU architecture"
     end
@@ -17,11 +17,11 @@ class AitNative < Formula
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.1.0/ait-native-1.1.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "9f77fade2109d7288da169ce724f1b80ee4047b2285dd0f0c5fc1fd7589588bd"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.1.1/ait-native-1.1.1-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "80143968f47899363232e3f2a333f2cc32a0f8da5567ab186e30de4bab48263c"
     elsif Hardware::CPU.intel?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.1.0/ait-native-1.1.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "356ac2c7052f61f66aa0aa7704e576b27dccb30987af9a67c5788d1ff85ec603"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.1.1/ait-native-1.1.1-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "93b689a1869251532c18f1733def611fd5570f8ace47a9320baf603fb873dece"
     else
       odie "unsupported CPU architecture"
     end
@@ -30,6 +30,7 @@ class AitNative < Formula
   def install
     bin.install "bin/ait"
     bin.install "bin/ait-server"
+    bin.install "bin/ait-runner"
     pkgshare.install "share/licenses"
     pkgshare.install "share/ait-native/ait-family-provenance.json"
   end
@@ -50,6 +51,8 @@ class AitNative < Formula
   def caveats
     <<~EOS
       ait-server is installed but remains inactive until explicitly started.
+      ait-runner is installed but no runner daemon is configured or started.
+      Inspect the released runner interface with: #{bin}/ait-runner serve --help
       Foreground: #{bin}/ait-server
       Managed user service: brew services start ait-native
       Service data: #{var}/ait-native/server-data
@@ -60,5 +63,6 @@ class AitNative < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/ait --version")
     assert_match version.to_s, shell_output("#{bin}/ait-server --version")
+    assert_match version.to_s, shell_output("#{bin}/ait-runner --version")
   end
 end
