@@ -5,11 +5,11 @@ class AitNative < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.1.4/ait-native-1.1.4-aarch64-apple-darwin.tar.gz"
-      sha256 "36d617effdbcf5f05969ffd84c05df195c725270fd9f89919e5163015f989d35"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.2.0/ait-native-1.2.0-aarch64-apple-darwin.tar.gz"
+      sha256 "64437112f7a9f650cf04df612ea07994c5d538981bcd665d92899ebc1e294d8b"
     elsif Hardware::CPU.intel?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.1.4/ait-native-1.1.4-x86_64-apple-darwin.tar.gz"
-      sha256 "f0727c7c2678c7f923834d5a56cfce51348f5c74c1c7daf8459a34a26916f4ff"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.2.0/ait-native-1.2.0-x86_64-apple-darwin.tar.gz"
+      sha256 "90bda36855ea58af475558788195d07ecc5659b1ef3ded47740cd746ef749c30"
     else
       odie "unsupported CPU architecture"
     end
@@ -17,11 +17,11 @@ class AitNative < Formula
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.1.4/ait-native-1.1.4-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "37f212a6264e38e143384026536b50e8432cb52a91958ce6a20be32faddd5024"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.2.0/ait-native-1.2.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "c5ce7952d70f2b2ff844466a660a1c94f8a47a7ffc7c19e9c09e78cad65a1779"
     elsif Hardware::CPU.intel?
-      url "https://github.com/weita2026/ait-native/releases/download/v1.1.4/ait-native-1.1.4-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "3b315650640a12aac97e194c8446396ecad6c0b3fc345f5aa58548cd43218ed9"
+      url "https://github.com/weita2026/ait-native/releases/download/v1.2.0/ait-native-1.2.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "30bdb29715d4580ad1be6ac9c56301c760ee0eb24127592096a71be4127fd64d"
     else
       odie "unsupported CPU architecture"
     end
